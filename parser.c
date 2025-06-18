@@ -45,7 +45,7 @@ const Ctrl * parse(char *input)
         ctrl->num_args += 1;
         *(++args) = p;
 
-        p = skip_spaces( input );
+        p = p2 = skip_spaces( input );
 
         // Read command's main part
         while( *p != '\0'
