@@ -3,8 +3,8 @@
 .PHONY: clean all
 
 
-all: mem.o newish.o io.o appinfo.o cmds.o ctrl.o atr.o parser.o error.o
-	$(CC) $(LDFLAGS) mem.o newish.o io.o cmds.o ctrl.o appinfo.o atr.o parser.o error.o -o newish
+all: mem.o newish.o io.o appinfo.o cmds.o ctrl.o atr.o parser.o error.o util.o
+	$(CC) $(LDFLAGS) mem.o newish.o io.o cmds.o ctrl.o appinfo.o atr.o parser.o error.o util.o -o newish
 
 newish.o: newish.c
 	$(CC) $(CFLAGS) -c newish.c -o newish.o
@@ -32,6 +32,9 @@ error.o: error.c
 
 mem.o: mem.c
 	$(CC) $(CFLAGS) -c mem.c -o mem.o
+
+util.o: util.c
+	$(CC) $(CFLAGS) -c util.c -o util.o
 
 clean:
 	$(RM) *.o

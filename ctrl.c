@@ -26,7 +26,7 @@ Ctrl * create_ctrl()
     }
 
     ctrl.should_exit = false;
-    *ctrl.prompt = '\0';
+    *ctrl.cmd = '\0';
 
     memset( ctrl.args, sizeof( ctrl.args ), 0 );
     return &ctrl;

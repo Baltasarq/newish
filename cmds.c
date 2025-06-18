@@ -6,6 +6,7 @@
 #include "ctrl.h"
 #include "atr.h"
 #include "error.h"
+#include "util.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -62,7 +63,8 @@ void cat()
             {
                 const Atr * atr = get_atr_for( dir_entry->d_name );
 
-                output_padded( dir_entry->d_name, 20 );
+                output_padded(
+                    usr_file_name_from_sys_file_name( dir_entry->d_name ), 20 );
                 output_char( '\t' );
 
                 output_char( get_mark_for( atr ) );
