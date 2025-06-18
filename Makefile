@@ -1,41 +1,44 @@
+# (c) 2024 newiSH Baltasar MIT License <baltasarq@gmail.com>
 
+# Variables
+BIN_DIR = bin
 
+# Build rules
 .PHONY: clean all
 
+all: $(BIN_DIR)/mem.o $(BIN_DIR)/newish.o $(BIN_DIR)/io.o $(BIN_DIR)/appinfo.o $(BIN_DIR)/cmds.o $(BIN_DIR)/ctrl.o $(BIN_DIR)/atr.o $(BIN_DIR)/parser.o $(BIN_DIR)/error.o $(BIN_DIR)/util.o
+	$(CC) $(LDFLAGS) $(BIN_DIR)/mem.o $(BIN_DIR)/newish.o $(BIN_DIR)/io.o $(BIN_DIR)/cmds.o $(BIN_DIR)/ctrl.o $(BIN_DIR)/appinfo.o $(BIN_DIR)/atr.o $(BIN_DIR)/parser.o $(BIN_DIR)/error.o $(BIN_DIR)/util.o -o $(BIN_DIR)/newish
 
-all: bin/mem.o bin/newish.o bin/io.o bin/appinfo.o bin/cmds.o bin/ctrl.o bin/atr.o bin/parser.o bin/error.o bin/util.o
-	$(CC) $(LDFLAGS) bin/mem.o bin/newish.o bin/io.o bin/cmds.o bin/ctrl.o bin/appinfo.o bin/atr.o bin/parser.o bin/error.o bin/util.o -o bin/newish
+$(BIN_DIR)/newish.o: newish.c
+	$(CC) $(CFLAGS) -c newish.c -o $(BIN_DIR)/newish.o
 
-bin/newish.o: newish.c
-	$(CC) $(CFLAGS) -c newish.c -o bin/newish.o
+$(BIN_DIR)/io.o: io.c
+	$(CC) $(CFLAGS) -c io.c -o $(BIN_DIR)/io.o
 
-bin/io.o: io.c
-	$(CC) $(CFLAGS) -c io.c -o bin/io.o
+$(BIN_DIR)/appinfo.o: appinfo.c
+	$(CC) $(CFLAGS) -c appinfo.c -o $(BIN_DIR)/appinfo.o
 
-bin/appinfo.o: appinfo.c
-	$(CC) $(CFLAGS) -c appinfo.c -o bin/appinfo.o
+$(BIN_DIR)/cmds.o: cmds.c
+	$(CC) $(CFLAGS) -c cmds.c -o $(BIN_DIR)/cmds.o
 
-bin/cmds.o: cmds.c
-	$(CC) $(CFLAGS) -c cmds.c -o bin/cmds.o
+$(BIN_DIR)/ctrl.o: ctrl.c
+	$(CC) $(CFLAGS) -c ctrl.c -o $(BIN_DIR)/ctrl.o
 
-bin/ctrl.o: ctrl.c
-	$(CC) $(CFLAGS) -c ctrl.c -o bin/ctrl.o
+$(BIN_DIR)/atr.o: atr.c
+	$(CC) $(CFLAGS) -c atr.c -o $(BIN_DIR)/atr.o
 
-bin/atr.o: atr.c
-	$(CC) $(CFLAGS) -c atr.c -o bin/atr.o
+$(BIN_DIR)/parser.o: parser.c
+	$(CC) $(CFLAGS) -c parser.c -o $(BIN_DIR)/parser.o
 
-bin/parser.o: parser.c
-	$(CC) $(CFLAGS) -c parser.c -o bin/parser.o
+$(BIN_DIR)/error.o: error.c
+	$(CC) $(CFLAGS) -c error.c -o $(BIN_DIR)/error.o
 
-bin/error.o: error.c
-	$(CC) $(CFLAGS) -c error.c -o bin/error.o
+$(BIN_DIR)/mem.o: mem.c
+	$(CC) $(CFLAGS) -c mem.c -o $(BIN_DIR)/mem.o
 
-bin/mem.o: mem.c
-	$(CC) $(CFLAGS) -c mem.c -o bin/mem.o
-
-bin/util.o: util.c
-	$(CC) $(CFLAGS) -c util.c -o bin/util.o
+$(BIN_DIR)/util.o: util.c
+	$(CC) $(CFLAGS) -c util.c -o $(BIN_DIR)/util.o
 
 clean:
-	$(RM) bin/*.o
-	$(RM) bin/newish
+	$(RM) $(BIN_DIR)/*.o
+	$(RM) $(BIN_DIR)/newish
