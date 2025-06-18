@@ -2,7 +2,7 @@
 
 
 #include "mem.h"
-#include "panic.h"
+#include "error.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +13,7 @@ void * alloc_mem(size_t numBytes)
     void * mem = malloc( numBytes );
 
     if ( mem == NULL ) {
-        panic( PANIC_NOT_ENOUGH_MEMORY );
+        panic( PANIC_NOT_ENOUGH_MEMORY, "allocating memory" );
     }
 
     return mem;
@@ -30,7 +30,7 @@ char *copy_str(const char *s)
     char * toret = strdup( s );
 
     if ( toret == NULL ) {
-        panic( PANIC_NOT_ENOUGH_MEMORY );
+        panic( PANIC_NOT_ENOUGH_MEMORY, "copying string" );
     }
 
     return toret;
