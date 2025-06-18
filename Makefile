@@ -3,39 +3,39 @@
 .PHONY: clean all
 
 
-all: mem.o newish.o io.o appinfo.o cmds.o ctrl.o atr.o parser.o error.o util.o
-	$(CC) $(LDFLAGS) mem.o newish.o io.o cmds.o ctrl.o appinfo.o atr.o parser.o error.o util.o -o newish
+all: bin/mem.o bin/newish.o bin/io.o bin/appinfo.o bin/cmds.o bin/ctrl.o bin/atr.o bin/parser.o bin/error.o bin/util.o
+	$(CC) $(LDFLAGS) bin/mem.o bin/newish.o bin/io.o bin/cmds.o bin/ctrl.o bin/appinfo.o bin/atr.o bin/parser.o bin/error.o bin/util.o -o bin/newish
 
-newish.o: newish.c
-	$(CC) $(CFLAGS) -c newish.c -o newish.o
+bin/newish.o: newish.c
+	$(CC) $(CFLAGS) -c newish.c -o bin/newish.o
 
-io.o: io.c
-	$(CC) $(CFLAGS) -c io.c -o io.o
+bin/io.o: io.c
+	$(CC) $(CFLAGS) -c io.c -o bin/io.o
 
-appinfo.o: appinfo.c
-	$(CC) $(CFLAGS) -c appinfo.c -o appinfo.o
+bin/appinfo.o: appinfo.c
+	$(CC) $(CFLAGS) -c appinfo.c -o bin/appinfo.o
 
-cmds.o: cmds.c
-	$(CC) $(CFLAGS) -c cmds.c -o cmds.o
+bin/cmds.o: cmds.c
+	$(CC) $(CFLAGS) -c cmds.c -o bin/cmds.o
 
-ctrl.o: ctrl.c
-	$(CC) $(CFLAGS) -c ctrl.c -o ctrl.o
+bin/ctrl.o: ctrl.c
+	$(CC) $(CFLAGS) -c ctrl.c -o bin/ctrl.o
 
-atr.o: atr.c
-	$(CC) $(CFLAGS) -c atr.c -o atr.o
+bin/atr.o: atr.c
+	$(CC) $(CFLAGS) -c atr.c -o bin/atr.o
 
-parser.o: parser.c
-	$(CC) $(CFLAGS) -c parser.c -o parser.o
+bin/parser.o: parser.c
+	$(CC) $(CFLAGS) -c parser.c -o bin/parser.o
 
-error.o: error.c
-	$(CC) $(CFLAGS) -c error.c -o error.o
+bin/error.o: error.c
+	$(CC) $(CFLAGS) -c error.c -o bin/error.o
 
-mem.o: mem.c
-	$(CC) $(CFLAGS) -c mem.c -o mem.o
+bin/mem.o: mem.c
+	$(CC) $(CFLAGS) -c mem.c -o bin/mem.o
 
-util.o: util.c
-	$(CC) $(CFLAGS) -c util.c -o util.o
+bin/util.o: util.c
+	$(CC) $(CFLAGS) -c util.c -o bin/util.o
 
 clean:
-	$(RM) *.o
-	$(RM) newish
+	$(RM) bin/*.o
+	$(RM) bin/newish
