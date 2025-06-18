@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "io.h": "c",
+        "unistd.h": "c",
+        "parser.h": "c",
+        "ctrl.h": "c",
+        "stdbool.h": "c",
+        "stdlib.h": "c"
+    }
+}
